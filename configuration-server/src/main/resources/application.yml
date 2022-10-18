@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: CONFIGURATION-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Toan1606/food_ordering_config_server
+          clone-on-start: true
+          default-label: master
+server:
+  port: 8888
+
