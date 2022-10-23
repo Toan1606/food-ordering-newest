@@ -1,4 +1,4 @@
-package com.java.orderservice.model;
+package com.java.orderservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +27,7 @@ public class OrderLineItems {
     private Integer quantity;
 
     @ManyToOne
-    @JoinColumn(name = "order_order_id", referencedColumnName = "orderId")
+    @JoinColumn(name = "order_order_id")
     private Order order;
 
 }

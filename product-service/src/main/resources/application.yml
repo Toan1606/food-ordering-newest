@@ -7,10 +7,3 @@ eureka:
 spring:
   application:
     name: product-service
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-    generate-ddl: true
-    show-sql: true

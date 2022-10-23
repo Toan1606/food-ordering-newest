@@ -1,4 +1,4 @@
-package com.java.orderservice.model;
+package com.java.orderservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,12 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long orderId;
+    private String orderId;
 
     private String orderNumber;
 

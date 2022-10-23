@@ -2,11 +2,15 @@ package com.java.inventoryservice.controller;
 
 import com.java.inventoryservice.dto.ApiResponse;
 import com.java.inventoryservice.dto.InventoryRequest;
+import com.java.inventoryservice.dto.InventoryResponse;
+import com.java.inventoryservice.entity.Inventory;
 import com.java.inventoryservice.service.impl.InventoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -16,15 +20,20 @@ public class InventoryController {
     private final InventoryService inventoryService;
 
     @GetMapping
-    public ResponseEntity<Boolean> isInstock(@PathVariable String skuCode) {
-        boolean isInstock = inventoryService.isInstock(skuCode);
-        return ResponseEntity.ok(isInstock);
+    public ResponseEntity<List<InventoryResponse>> isInstock(@RequestParam(name = "skuCode") List<String> skuCodes) {
+        List<InventoryResponse> inventoryResponses = inventoryService.findInventoryBySkucodeIn(skuCodes);
+        return ResponseEntity.status(HttpStatus.OK).body(inventoryResponses);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse> addInventory(@RequestBody InventoryRequest inventoryRequest) {
-        ApiResponse response = ApiResponse.builder().build();
-        inventoryService.addInventory(inventoryRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity<InventoryResponse> addInventory(@RequestBody InventoryRequest inventoryRequest) {
+        InventoryResponse response = inventoryService.addNewInventory(inventoryRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PostMapping("/add-list")
+    public ResponseEntity<List<InventoryResponse>> addInventoryList(@RequestBody List<InventoryRequest> inventoriesRequest) {
+        List<InventoryResponse> response = inventoryService.addInventoryList(inventoriesRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

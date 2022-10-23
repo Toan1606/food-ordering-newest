@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Data
 @Builder
 public class OrderLineItemsDto implements Serializable {
+
     private String skuCode;
 
     private BigDecimal price;

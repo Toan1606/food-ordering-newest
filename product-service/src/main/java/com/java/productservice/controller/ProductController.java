@@ -26,22 +26,11 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @Value("${test.name}")
-    private String name;
-
     @GetMapping
     public ResponseEntity<List<ProductResponse>> findAll() {
         log.info("findAll() method to display ");
         return ResponseEntity.ok(productService.findAllProduct());
     }
-
-    @GetMapping("/get-name")
-    public ResponseEntity<ProductResponse> getName(@RequestParam("productName") String productName) {
-        log.info("getName() method to display " + this.name);
-        ProductResponse productResponse = productService.findProductByName(productName);
-        return ResponseEntity.ok(productResponse);
-    }
-
 
     @PostMapping("/add")
     public ResponseEntity<Product> addProduct(@RequestBody ProductRequest productRequest) {

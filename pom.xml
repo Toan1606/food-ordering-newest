@@ -4,13 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
+		<module>api-gateway</module>
+		<module>configuration-server</module>
+		<module>eureka-server</module>
         <module>inventory-service</module>
 		<module>notification-service</module>
 		<module>order-service</module>
 		<module>product-service</module>
-		<module>api-gateway</module>
-		<module>configuration-server</module>
-		<module>eureka-server</module>
+		<module>order-service</module>
 	</modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,6 +29,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-cloud.version>2021.0.4</spring-cloud.version>
 		<test.containers.version>1.17.5</test.containers.version>
+		<spring-cloud-config-client-version>3.0.1</spring-cloud-config-client-version>
+		<spring-cloud-starter-bootstrap-version>3.0.1</spring-cloud-starter-bootstrap-version>
 	</properties>
 	<dependencies>
 		<dependency>

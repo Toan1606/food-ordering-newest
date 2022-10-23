@@ -1,14 +1,10 @@
-package com.java.inventoryservice.dto;
+package com.java.orderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 @Data
@@ -24,4 +20,5 @@ public class InventoryResponse implements Serializable {
     private boolean isInstock;
 
     private Integer quantity;
+
 }

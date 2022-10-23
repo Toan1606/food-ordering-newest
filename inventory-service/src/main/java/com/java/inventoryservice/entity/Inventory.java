@@ -1,5 +1,6 @@
-package com.java.inventoryservice.model;
+package com.java.inventoryservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +20,12 @@ public class Inventory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long inventoryId;
 
+    @JsonProperty("inventory_name")
+    private String inventoryName;
+
+    @Column(name = "sku_code", unique = true)
     private String skuCode;
 
+    @Column(name = "quantity")
     private Integer quantity;
 }

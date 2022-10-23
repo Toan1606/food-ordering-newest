@@ -1,16 +1,9 @@
-spring:
-  application:
-    name: NOTIFICATION-SERVICE
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create
-    generate-ddl: true
-    show-sql: true
 server:
-  port: 8084
+  port: 8081
 eureka:
   client:
-    fetch-registry: true
     register-with-eureka: true
+    fetch-registry: true
+spring:
+  application:
+    name: notification-service
