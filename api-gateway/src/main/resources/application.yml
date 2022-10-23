@@ -1,4 +1,6 @@
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: api-gateway
   cloud:
@@ -31,3 +33,7 @@ spring:
             - Path=/eureka/**
 server:
   port: 8084
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
